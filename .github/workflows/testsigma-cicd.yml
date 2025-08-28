@@ -3,7 +3,7 @@
 name: 'On Changes to Github-actions'
 
 # Controls when the workflow will run
-on:
+on: 
   push:
     branches:
       - 'main'
@@ -31,4 +31,6 @@ jobs:
           echo test, and deploy your project.
       - name: Run Testsigma Automation Suites
         run: |
-          cd ${{
+          cd ${{ github.workspace }}/testsigma
+          chmod a+x run_smoke_tests.sh
+          ./run_smoke_tests.sh
